@@ -14,7 +14,7 @@ from config.config import (HEMI, ROI, FS_SUB, FS_SRC_PATH, COUPLINGS,
                            SUBJECTS, GROUPS, TASKS, TASK_STAGES)
 from config.paths import FS_FOLDER, SOURCE_DATA_DIR, ERPAC_DIR, ROI_STCS_DIR, ERPAC_FIGS_DIR
 from utils.helpers import iterate_dataset
-from utils.plotting import plot_group_erpac
+from utils.plotting import plot_group_erpac, plot_group_erpac_timecourse
 
 import os
 import numpy as np
@@ -410,3 +410,13 @@ for group in GROUPS:
                 group=group,
                 save_dir=ERPAC_FIGS_DIR
             )
+
+for task_stage in TASK_STAGES:
+    for coupling in COUPLINGS:
+        plot_group_erpac_timecourse(
+            erpac_df,
+            task_stage=task_stage,
+            coupling=coupling,
+            save_dir=ERPAC_FIGS_DIR,
+            mode="peak_freq" 
+        )
