@@ -55,3 +55,17 @@ ROI = {
 
 FS_SUB = "fsaverage_bem"
 FS_SRC_PATH = os.path.join(FS_FOLDER, FS_SUB, "bem", f"{FS_SUB}-ico4-src.fif")
+
+
+# =========================
+# LMMs data extraction
+# =========================
+
+TIME_WINDOWS = {
+    "plan": {"early": (0.0, 0.2),
+             "middle": (0.2, 0.35),
+             "late": (0.35, 0.5)},
+    "go": {"pre": (-0.3, -0.1),
+           "move": (-0.1, 0.1),
+           "early_post": (0.1, 0.3),
+           "late_post": (0.3, 0.5)}}
