@@ -57,6 +57,15 @@ FS_SUB = "fsaverage_bem"
 FS_SRC_PATH = os.path.join(FS_FOLDER, FS_SUB, "bem", f"{FS_SUB}-ico4-src.fif")
 
 
+# ========================
+# Movement stage times
+# ========================
+
+TOI = {
+    "plan": {"start": 0.0, "end": 0.5},
+    "go": {"start": -0.15, "end": 0.5}
+}
+
 # =========================
 # LMMs data extraction
 # =========================
