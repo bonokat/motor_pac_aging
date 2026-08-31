@@ -7,8 +7,9 @@ import os
 
 GROUPS = ["Y", "O"]   # younger, older
 SUBJECTS = {"Y": os.listdir(os.path.join(SOURCE_DATA_DIR, "Y")), "O": os.listdir(os.path.join(SOURCE_DATA_DIR, "O"))}
-TASKS = ["FTT"]
+TASKS = ["DeCRAT"] # "FTT" or "DeCRAT"
 TASK_STAGES = ["plan", "go"]
+TASK_BLOCKS = ["baseline", "adaptation"]
 
 TASK_MAP = {"_BL": "FTT"}  # rename task for file transfer
 
@@ -62,8 +63,14 @@ FS_SRC_PATH = os.path.join(FS_FOLDER, FS_SUB, "bem", f"{FS_SUB}-ico4-src.fif")
 # ========================
 
 TOI = {
-    "plan": {"start": 0.0, "end": 0.5},
-    "go": {"start": -0.15, "end": 0.5}
+    "FTT": {
+        "plan": {"start": 0.0, "end": 0.5},
+        "go": {"start": -0.15, "end": 0.5}
+    },
+    "DeCRAT": {
+        "plan": {"start": 0.0, "end": 0.5},
+        "go": {"start": 0.0, "end": 0.7}
+    }
 }
 
 # =========================
@@ -71,10 +78,21 @@ TOI = {
 # =========================
 
 TIME_WINDOWS = {
-    "plan": {"early": (0.0, 0.2),
+    "FTT":
+        {"plan":
+            {"early": (0.0, 0.2),
              "middle": (0.2, 0.35),
              "late": (0.35, 0.5)},
-    "go": {"pre": (-0.3, -0.1),
+        "go": {"pre": (-0.3, -0.1),
            "move": (-0.1, 0.1),
            "early_post": (0.1, 0.3),
-           "late_post": (0.3, 0.5)}}
+           "late_post": (0.3, 0.5)}},
+    "DeCRAT":
+        {"plan":
+            {"early": (0.0, 0.2),
+             "middle": (0.2, 0.35),
+             "late": (0.35, 0.5)},
+         "go": {"start": (0.0, 0.15),
+                "middle": (0.15, 0.4),
+                "late": (0.4, 0.7)}}
+}
