@@ -17,3 +17,13 @@ ROI_STCS_DIR = os.path.join(ERPAC_DIR, "roi_stcs")
 
 FIGS_DIR = Path("F:\\# study 2\\eeg_data\\figs")
 ERPAC_FIGS_DIR = os.path.join(FIGS_DIR, "erpac")
+
+PCA_ROOT = Path(r"F:\\# study 2\\eeg_data\\erpac\\PCA")
+COMPONENTS_DIR = PCA_ROOT / "components"
+STCS_ALL_VTX_DIR = PCA_ROOT / "stcs_all_vtx"
+STCS_AVE_VTX_DIR = PCA_ROOT / "stcs_ave_vtx"
+PCA_ROI_TC_DIR = (
+    PCA_ROOT
+    / "stcs_ave_vtx"
+)
+PCA_ERPAC_DIR = PCA_ROOT / "erpac_roi_tc"

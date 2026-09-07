@@ -7,9 +7,10 @@ import os
 
 GROUPS = ["Y", "O"]   # younger, older
 SUBJECTS = {"Y": os.listdir(os.path.join(SOURCE_DATA_DIR, "Y")), "O": os.listdir(os.path.join(SOURCE_DATA_DIR, "O"))}
-TASKS = ["DeCRAT"] # "FTT" or "DeCRAT"
+TASKS = ["FTT", "DeCRAT"] # "FTT" or "DeCRAT"
 TASK_STAGES = ["plan", "go"]
 TASK_BLOCKS = ["baseline", "adaptation"]
+ADAPTATION_SPLITS = ["early", "late"]
 
 TASK_MAP = {"_BL": "FTT"}  # rename task for file transfer
 
@@ -72,6 +73,12 @@ TOI = {
         "go": {"start": 0.0, "end": 0.7}
     }
 }
+
+# ========================
+# PCA time window
+# ========================
+PCA_TMIN = 0.0
+PCA_TMAX = 0.5
 
 # =========================
 # LMMs data extraction

@@ -3,7 +3,8 @@ def iterate_dataset(
     subjects,
     tasks,
     stages,
-    blocks=None
+    blocks=None,
+    adaptation_splits=None
 ):
     """
     Iterate through all group-subject-task-stage combinations.
@@ -21,18 +22,32 @@ def iterate_dataset(
                 for stage in stages:
                     if blocks is not None and task == "DeCRAT":
                         for block in blocks:
-                            yield (
-                                group,
-                                subject,
-                                task,
-                                stage,
-                                block
-                            )
+                            if adaptation_splits and block == "adaptation":
+                                for adaptation_split in adaptation_splits:
+                                    yield (
+                                        group,
+                                        subject,
+                                        task,
+                                        stage,
+                                        block,
+                                        adaptation_split
+                                    )
+                            else:
+                                yield (
+                                    group,
+                                    subject,
+                                    task,
+                                    stage,
+                                    block,
+                                    None
+                                )
                     
                     else:
                         yield (
                             group,
                             subject,
                             task,
-                            stage
+                            stage,
+                            None,
+                            None
                         )
