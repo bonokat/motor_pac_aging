@@ -17,7 +17,7 @@ TASK_MAP = {"_BL": "FTT"}  # rename task for file transfer
 # =========================
 # ERPAC ANALYSIS
 # =========================
-GAMMA = (30, 80, 5, 1)
+GAMMA = [30, 80]
 
 COUPLINGS = {
     "theta_gamma": ([4, 8], GAMMA),
@@ -130,3 +130,19 @@ TIME_WINDOWS = {
         }
     }
 }
+
+# # USE LATER
+# time_windows = {
+#     "plan": {
+#         "early": (0.0, 0.15),
+#         "middle": (0.15, 0.275),
+#         "late": (0.275, 0.4)
+#     },
+#     "go": {
+#         "early": (0.0, 0.15),
+#         "middle": (0.15, 0.275),
+#         "late": (0.275, 0.4)
+#     }
+# }
+
+# toi_mask = (short_times >= 0) & (short_times < 0.4)
